@@ -6,9 +6,9 @@ import ClientForm from "./ClientForm";
 class App extends Component {
   state = {
     clients: [
-      { id: 0, nom: "Mec 1" },
-      { id: 1, nom: "Mec 2" },
-      { id: 2, nom: "Mec 3" }
+      { id: 0, nom: "Personne 1" },
+      { id: 1, nom: "Personne 2" },
+      { id: 2, nom: "Personne 3" }
     ]
   };
 
@@ -22,9 +22,11 @@ class App extends Component {
     this.setState({ clients });
   };
 
-  addClient = (name = "Mec") => {
+  addClient = (name = "Personne") => {
     var clients = this.state.clients.slice();
     let id;
+
+    if (name == "" || name == " ") name = "Personne";
 
     if (clients.length - 1 < 0) id = 0;
     else id = clients[clients.length - 1].id + 1;
